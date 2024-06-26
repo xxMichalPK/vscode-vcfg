@@ -1,0 +1,25 @@
+{
+  "name": "vcfg-language-support",
+  "displayName": "VCFG Language Support",
+  "description": "Support for the .vcfg configuration file syntax",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "vcfg",
+      "aliases": ["VortexConfig File", "vcfg"],
+      "extensions": [".vcfg"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "vcfg",
+      "scopeName": "source.vcfg",
+      "path": "./syntaxes/vcfg.tmLanguage.json"
+    }]
+  }
+}

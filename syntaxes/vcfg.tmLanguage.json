@@ -1,0 +1,91 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "VortexConfig File",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#entities"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block.vcfg",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.vcfg"
+						}
+					}
+				},
+				{
+					"name": "comment.block.empty.vcfg",
+					"match": "/\\*\\*/",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.vcfg"
+						}
+					}
+				},
+				{
+					"name": "comment.line.double-slash.vcfg",
+					"begin": "//",
+					"end": "\r?\n"
+				}
+			]
+		},
+		"entities": {
+			"patterns": [
+				{
+					"name": "entity.name.section.vcfg",
+					"match": "^(\\[.+\\])"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.parameter.vcfg",
+					"match": "^(\\s*)((\"[^\"]+\")|([^=\\s/,.;:]+))(\\s)*(?==)"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.vcfg",
+					"match": "\\b([0-9\\.]+)\\b"
+				},
+				{
+					"name": "constant.language.vcfg",
+					"match": "\\b(true|false)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.vcfg",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.vcfg",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.vcfg"
+}
